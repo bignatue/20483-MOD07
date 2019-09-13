@@ -1,3 +1,5 @@
 # 20483-MOD07
 
-## Lab test only
+Adding bootstrap to ASP.NET Core Framework MVC
+Deploying to GitHub
+Publish to Azure
