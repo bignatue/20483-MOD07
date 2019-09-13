@@ -1,0 +1,77 @@
+﻿@using Cupcakes.Models
+@model Cupcakes.Models.Cupcake
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit | Cupcake</title>
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-12">
+                <h5 class="h4">EDIT A CUPCAKE</h5>
+                <div class="card p-4">
+                    <form method="post" enctype="multipart/form-data" asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly"></div>
+                        <div class="form-group">
+                            <label>Bakery</label>
+                            <select class="form-control" asp-for="BakeryId" asp-items="ViewBag.BakeryID">
+                                <option selected="selected" value="">Select</option>
+                            </select>
+                            <span asp-validation-for="BakeryId"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>CupcakeType</label>
+                            <select class="form-control" asp-for="CupcakeType" asp-items="Html.GetEnumSelectList<CupcakeType>()">
+                                <option selected="selected" value="">Select</option>
+                            </select>
+                            <span asp-validation-for="CupcakeType"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" asp-for="Description"></textarea>
+                            <span asp-validation-for="Description"></span>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" asp-for="GlutenFree">
+                            <label class="form-check-label" for="exampleCheck1">GlutenFree</label>
+                            <span asp-validation-for="GlutenFree"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input class="form-control" asp-for="Price" />
+                            <span asp-validation-for="Price"></span>
+                        </div>
+                        <div class="form-group mb-5">
+                            <label>PhotoAvatar</label><br />
+                            <input class=" " asp-for="PhotoAvatar" type="file" />
+                            <span asp-validation-for="PhotoAvatar"></span>
+                        </div>
+
+                        <div>
+                            <input type="hidden" asp-for="ImageMimeType" />
+                            <input type="hidden" asp-for="ImageName" />
+                            @Html.HiddenFor(c => c.PhotoAvatar)
+                            @Html.HiddenFor(c => c.PhotoFile)
+                        </div>
+                        <div class="form-group">
+                            <input class="btn btn-outline-primary" type="submit" value="Update" />
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

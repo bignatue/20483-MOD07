@@ -1,0 +1,47 @@
+﻿@model Cupcakes.Models.Cupcake
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details | Cupcake</title>
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-12">
+                <h5 class="h4">PRODUCT DETAILS</h5>
+                <div class="card">
+                    <div class="row">
+                        <div class="col-8">
+                            @if (Model.ImageName != null)
+                            {
+                                <img src="@Url.Action("GetImage", "Cupcake", new { Id = Model.CupcakeId })" class="card-img-top" alt="...">
+                            }
+                        </div>
+                        <div class="col-4">
+                            <div class="card-body">
+                                <h5 class="h1">@Html.DisplayFor(modelItem => modelItem.CupcakeType)</h5>
+                                <hr />
+                                <p>@Html.DisplayNameFor(model => model.Description) @Html.DisplayFor(model => model.Description) </p>
+                                <p>@Html.DisplayNameFor(model => model.GlutenFree) @Html.DisplayFor(model => model.GlutenFree)</p>
+                                <p>@Html.DisplayNameFor(model => model.Price) @Html.DisplayFor(model => model.Price)</p>
+                                <p>@Html.DisplayFor(model => model.CaloricValue) @Html.DisplayNameFor(model => model.CaloricValue)</p>
+                            </div>
+                            <div class="card-body">
+                                <a class="btn btn-outline-primary" asp-action="Index">Back to List</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Cupcakes.Models.Cupcake>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index | Cupcake</title>
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="text-center py-5">
+            <h4 class="h3">Welcome to our Cupcakes Shop</h4>
+        </div>
+        <div class="row">
+            <div class="col-12 text-right mb-3">
+                <button class="btn btn-outline-primary" type="button" onclick="location.href='@Url.Action("Create", "Cupcake")'">Add Cupcake</button>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-3">
+                    <div class="card-group">
+                        <div class="card">
+                            @if (item.ImageName != null)
+                            {
+                                <img src="@Url.Action("GetImage", "Cupcake", new { Id = item.CupcakeId })" class="card-img-top" alt="...">
+                            }
+                            <div class="card-body">
+                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.CupcakeType)</h5>
+                                <hr />
+                                <p class="card-text">@Html.DisplayFor(model => item.Description)</p>
+                            </div>
+                            <div class="card-body text-center">
+                                <a class="card-link" asp-action="Edit" asp-route-id="@item.CupcakeId">Edit</a> |
+                                <a class="card-link ml-1" asp-action="Details" asp-route-id="@item.CupcakeId">Details</a> |
+                                <a class="card-link ml-1 text-danger" asp-action="Delete" asp-route-id="@item.CupcakeId">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</body>
+</html>

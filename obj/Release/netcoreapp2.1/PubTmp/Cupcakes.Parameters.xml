@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="20483-MOD07" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\bigna\\source\\repos\\MyContainer\\C-Sharp\\20486D-DevelopingASPNETMVCWebApplications\\Allfiles\\Mod07\\Labfiles\\01_Cupcakes_begin\\Cupcakes\\obj\\Release\\netcoreapp2\.1\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>
